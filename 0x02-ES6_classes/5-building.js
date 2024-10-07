@@ -1,22 +1,17 @@
 export default class Building {
   constructor(sqft) {
-    if (this.constructor === Building) {
-      throw new Error("Abstract classes cannot be instantiated");
-    }
     this._sqft = sqft;
+    if (this.constructor === Building) {
+      if (typeof this.evacuationWarningMessage !== "function") {
+        throw new Error(
+          "Class extending Building must override evacuationWarningMessage"
+        );
+      }
+    }
   }
 
   // getter method for sqft
   get sqft() {
     return this._sqft;
-  }
-
-  //   Function evacuationWarningMessage():
-  //   Throw Error: "Class extending Building must override evacuationWarningMessage"
-  // eslint-disable-next-line class-methods-use-this
-  evacuationWarningMessage() {
-    throw new Error(
-      "Class extending Building must override evacuationWarningMessage"
-    );
   }
 }
