@@ -1,9 +1,6 @@
 export default class Building {
   constructor(sqft) {
     this._sqft = sqft;
-    if (new.target === Building) {
-      this.evacuationWarningMessage();
-    }
   }
 
   // getter method for sqft
@@ -11,6 +8,8 @@ export default class Building {
     return this._sqft;
   }
 
+  //   Function evacuationWarningMessage():
+  //   Throw Error: "Class extending Building must override evacuationWarningMessage"
   // eslint-disable-next-line class-methods-use-this
   evacuationWarningMessage() {
     throw new Error(
