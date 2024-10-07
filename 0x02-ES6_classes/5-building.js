@@ -1,23 +1,23 @@
 export default class Building {
-  // Constructor to initialize the attributes
   constructor(sqft) {
-    this.sqft = sqft; // Use setter to validate
+    /* If the current class is Building:
+            Throw Error: "Building is an abstract class and cannot be instantiated directly"
+        */
+    if (new.target === Building) {
+      throw new Error(
+        'Building is an abstract class and cannot be instantiated directly',
+      );
+    }
+    this._sqft = sqft;
   }
 
-  // Getter for sqft
+  // getter method for sqft
   get sqft() {
     return this._sqft;
   }
 
-  // Setter for sqft with validation
-  set sqft(value) {
-    if (typeof value !== 'number') {
-      throw new TypeError('Sqft must be a number');
-    }
-    this._sqft = value;
-  }
-
-  // Method that must be overridden in any subclass
+  //   Function evacuationWarningMessage():
+  //   Throw Error: "Class extending Building must override evacuationWarningMessage"
   static evacuationWarningMessage() {
     throw new Error(
       'Class extending Building must override evacuationWarningMessage',
