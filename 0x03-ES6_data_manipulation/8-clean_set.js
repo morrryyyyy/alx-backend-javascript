@@ -3,7 +3,7 @@ export default function cleanSet(set, startString) {
   const result = [];
 
   // Check if startString is not empty
-  if (startString && typeof startString === "string") {
+  if (startString && typeof startString === 'string') {
     // Iterate through each value in the set
     for (const value of set) {
       // Check if the value starts with startString
@@ -18,5 +18,5 @@ export default function cleanSet(set, startString) {
   }
 
   // Join the result array into a single string separated by hyphens
-  return result.join("-");
+  return result.join('-');
 }
